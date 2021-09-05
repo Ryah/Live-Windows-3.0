@@ -1,7 +1,7 @@
 
 # LIVE WINDOWS 3.0
 
-Script to monitor a window or section of a window (such as a progress bar, or video) in a resizable live preview window (thumbnail)									  
+An AutoHotKey Script to monitor a window or section of a window (such as a progress bar, or video) in a resizable live preview window (thumbnail)									  
 
 
 ## Keybinds
