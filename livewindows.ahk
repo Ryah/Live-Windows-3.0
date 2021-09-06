@@ -38,32 +38,6 @@ global guiShown := false
 global opacity := 255
 global opacityPercent := 100
 
-; Making it not portable because someone told me to
-
-; If the script is not elevated, relaunch as administrator and kill current instance:
-
-full_command_line := DllCall("GetCommandLine", "str")
-
-if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
-{
-    try ; leads to having the script re-launching itself as administrator
-    {
-        if A_IsCompiled
-            Run *RunAs "%A_ScriptFullPath%" /restart
-        else
-            Run *RunAs "%A_AhkPath%" /restart "%A_ScriptFullPath%"
-    }
-    ExitApp
-}
-if !FileExist("%A_AppData%\LiveWindows\Bitch.ini") {
-    FileCreateDir, %A_AppData%\LiveWindows
-    IniWrite, bitch, %A_AppData%\LiveWindows\Bitch.ini, Bitch, Bitch
-    if (ErrorLevel = 1) {
-        MsgBox, The random ini file to prove a point wasn't able to be made. Program exiting.
-        ExitApp
-    }
-}
-
 #IfWinActive
 ; initializing hotkeys
 Hotkey, $#+w, watchWindow
